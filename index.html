@@ -4,495 +4,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vinícius Monteiro - Senior Software Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Fira Sans', sans-serif;
-            color: #2c3e50;
-            overflow-x: hidden;
-        }
-
-        /* Universe Background - Refined */
-        .universe-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 50%, #dce4eb 100%);
-            z-index: -2;
-        }
-
-        .stars {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: rgba(176, 190, 197, 0.4);
-            border-radius: 50%;
-            animation: twinkle 4s infinite;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.2; }
-            50% { opacity: 0.6; }
-        }
-
-        /* Nebula effect - Subtle */
-        .nebula {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background:
-                radial-gradient(circle at 20% 60%, rgba(189, 224, 254, 0.08) 0%, transparent 40%),
-                radial-gradient(circle at 80% 40%, rgba(189, 224, 254, 0.05) 0%, transparent 40%);
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        /* Main content */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 50px 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Header */
-        header {
-            text-align: center;
-            margin-bottom: 70px;
-            padding-top: 30px;
-            animation: fadeIn 0.8s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        h1 {
-            font-size: 3.2rem;
-            margin-bottom: 10px;
-            color: #1a252f;
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-
-        .location {
-            font-size: 1.1rem;
-            color: #5a6c7d;
-            margin-bottom: 25px;
-            font-weight: 400;
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 35px;
-            margin-bottom: 35px;
-            flex-wrap: wrap;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #3d5a80;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-        }
-
-        .contact-item:hover {
-            color: #2c4560;
-            transform: translateY(-2px);
-        }
-
-        .icon {
-            font-size: 1.2rem;
-        }
-
-        /* Summary Section */
-        .summary {
-            max-width: 820px;
-            margin: 50px auto;
-            padding: 40px 45px;
-            background: rgba(255, 255, 255, 0.7);
-            border: 1px solid rgba(61, 90, 128, 0.12);
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
-            line-height: 1.8;
-            text-align: justify;
-            animation: slideIn 0.8s ease-in 0.2s both;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-20px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        .summary h2 {
-            margin-bottom: 20px;
-            color: #1a252f;
-            font-size: 1.6rem;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-        }
-
-        .summary p {
-            color: #3d4f5e;
-            font-size: 0.95rem;
-        }
-
-        /* Experience Section */
-        .experience {
-            margin: 80px auto;
-            max-width: 920px;
-        }
-
-        .experience h2 {
-            font-size: 1.8rem;
-            margin-bottom: 45px;
-            text-align: center;
-            color: #1a252f;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-        }
-
-        .job {
-            margin-bottom: 35px;
-            padding: 30px 35px;
-            background: rgba(255, 255, 255, 0.6);
-            border-left: 3px solid #5a6c7d;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            animation: slideIn 0.8s ease-in both;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-        }
-
-        .job:hover {
-            background: rgba(255, 255, 255, 0.85);
-            transform: translateX(8px);
-            border-left-color: #3d5a80;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .job:nth-child(1) { animation-delay: 0.3s; }
-        .job:nth-child(2) { animation-delay: 0.4s; }
-        .job:nth-child(3) { animation-delay: 0.5s; }
-        .job:nth-child(4) { animation-delay: 0.6s; }
-        .job:nth-child(5) { animation-delay: 0.7s; }
-
-        .job-title {
-            font-size: 1.3rem;
-            font-weight: 500;
-            color: #1a252f;
-            margin-bottom: 5px;
-        }
-
-        .company {
-            font-size: 1.05rem;
-            color: #5a6c7d;
-            margin-bottom: 5px;
-            font-weight: 400;
-        }
-
-        .job-date {
-            font-size: 0.85rem;
-            color: #7a8a99;
-            margin-bottom: 15px;
-        }
-
-        .job-description {
-            color: #3d4f5e;
-            line-height: 1.65;
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-        }
-
-        .technologies {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 15px;
-        }
-
-        .tech-tag {
-            display: inline-block;
-            padding: 6px 14px;
-            background: rgba(61, 90, 128, 0.08);
-            border: 1px solid rgba(61, 90, 128, 0.2);
-            border-radius: 18px;
-            font-size: 0.8rem;
-            color: #3d5a80;
-            transition: all 0.3s ease;
-            font-weight: 400;
-        }
-
-        .tech-tag:hover {
-            background: rgba(61, 90, 128, 0.15);
-            border-color: rgba(61, 90, 128, 0.35);
-            transform: translateY(-2px);
-        }
-
-        /* Skills Section */
-        .skills {
-            margin: 80px auto;
-            max-width: 920px;
-        }
-
-        .skills h2 {
-            font-size: 1.8rem;
-            margin-bottom: 40px;
-            text-align: center;
-            color: #1a252f;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-            gap: 18px;
-        }
-
-        .skill-item {
-            padding: 18px 20px;
-            background: rgba(255, 255, 255, 0.65);
-            border: 1px solid rgba(61, 90, 128, 0.15);
-            border-radius: 6px;
-            text-align: center;
-            transition: all 0.3s ease;
-            color: #3d4f5e;
-            font-size: 0.9rem;
-            font-weight: 400;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-        }
-
-        .skill-item:hover {
-            background: rgba(255, 255, 255, 0.9);
-            border-color: rgba(61, 90, 128, 0.25);
-            transform: translateY(-4px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-        }
-
-        /* Education Section */
-        .education {
-            margin: 80px auto;
-            max-width: 920px;
-        }
-
-        .education h2 {
-            font-size: 1.8rem;
-            margin-bottom: 40px;
-            text-align: center;
-            color: #1a252f;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-        }
-
-        .edu-item {
-            padding: 30px 35px;
-            background: rgba(255, 255, 255, 0.6);
-            border-left: 3px solid #5a6c7d;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-        }
-
-        .edu-item:hover {
-            background: rgba(255, 255, 255, 0.85);
-            border-left-color: #3d5a80;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .school {
-            font-size: 1.25rem;
-            font-weight: 500;
-            color: #1a252f;
-            margin-bottom: 8px;
-        }
-
-        .degree {
-            color: #5a6c7d;
-            margin-bottom: 8px;
-            font-size: 0.95rem;
-            font-weight: 400;
-        }
-
-        .edu-date {
-            color: #7a8a99;
-            font-size: 0.85rem;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 50px 20px;
-            color: #7a8a99;
-            border-top: 1px solid rgba(61, 90, 128, 0.1);
-            margin-top: 100px;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.3rem;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 18px;
-            }
-
-            .summary {
-                padding: 30px;
-            }
-
-            .job {
-                padding: 20px 25px;
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                gap: 14px;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Universe Background -->
-    <div class="universe-bg"></div>
-    <div class="nebula"></div>
+    <!-- Stars background -->
     <div class="stars" id="stars"></div>
 
-    <!-- Main Content -->
+    <!-- Main content -->
     <div class="container">
         <!-- Header -->
         <header>
             <h1>Vinícius Monteiro</h1>
-            <p class="location">São Paulo, São Paulo, Brazil</p>
-            <div class="contact-info">
-                <a href="mailto:vinicivs.monteiro@gmail.com" class="contact-item">
-                    <span class="icon">✉️</span>
-                    <span>vinicivs.monteiro@gmail.com</span>
-                </a>
-                <a href="https://linkedin.com/in/vinícius-monteiroa4365140" target="_blank" class="contact-item">
-                    <span class="icon">🔗</span>
-                    <span>LinkedIn Profile</span>
-                </a>
+            <p class="tagline">Backend Engineer</p>
+            <div class="contact-links">
+                <a href="mailto:vinicivs.monteiro@gmail.com">Email</a>
+                <a href="https://linkedin.com/in/vinícius-monteiroa4365140" target="_blank">LinkedIn</a>
+                <a href="https://github.com/vinicivs-monteiro" target="_blank">GitHub</a>
+                <a href="https://docs.google.com/document/d/1Fa6MncyM96SWt8lK6FmKglluD5sFObmMo_JPi35Wjtw/edit?tab=t.0" target="_blank">Resume</a>
+                <a href="#top">São Paulo, BR</a>
             </div>
         </header>
 
         <!-- Summary -->
-        <section class="summary">
-            <h2>Professional Summary</h2>
-            <p>Designing and developing applications for a decade, my focus is on backend systems. I've been working on projects of different sizes and purposes. Some practical examples are payment systems, ETL applications, online stores, internal libraries (related to messaging systems, command line interfaces, automation scripts), 3PI integrations, mobile applications, and more. Also got involved with more conceptual challenges such as architectural strategies and decisions, domain definitions, developer mentoring, and legacy migrations.</p>
+        <section class="summary-section">
+            <p>Backend engineer with over a decade of experience designing and developing applications. My expertise spans payment systems, ETL applications, microservices architecture, and cloud-based solutions. I'm passionate about building scalable systems, mentoring developers, and solving complex architectural challenges.</p>
         </section>
 
         <!-- Experience -->
-        <section class="experience">
-            <h2>Professional Experience</h2>
+        <section class="experience-section">
+            <h2 class="section-title">Experience</h2>
 
-            <div class="job">
-                <div class="job-title">Senior Software Engineer</div>
-                <div class="company">Netguru</div>
-                <div class="job-date">Apr 2022 - Present (1 year 2 months)</div>
-                <p class="job-description">Working on a complex Ruby on Rails application in a big company with more than 10 years in the market. Duties include developing new features, maintaining existing ones and negotiating with stakeholders.</p>
-                <div class="technologies">
-                    <span class="tech-tag">Ruby on Rails</span>
-                    <span class="tech-tag">Terraform</span>
-                    <span class="tech-tag">Kafka</span>
-                    <span class="tech-tag">AWS</span>
-                    <span class="tech-tag">PostgreSQL</span>
-                    <span class="tech-tag">Redis</span>
-                </div>
+            <div class="job-entry">
+                <div class="job-title">Netguru - Senior Software Engineer</div>
+                <div class="job-date">Apr 2022 - Present</div>
+                <p class="job-description">Working on complex Ruby on Rails application in a large organization. Developing new features, maintaining existing systems, and negotiating with stakeholders.</p>
+                <div class="tech-list">Ruby on Rails • Terraform • Kafka • AWS • PostgreSQL • Redis • Sidekiq</div>
             </div>
 
-            <div class="job">
-                <div class="job-title">Senior Software Engineer</div>
-                <div class="company">Payface</div>
-                <div class="job-date">May 2021 - Apr 2022 (1 year)</div>
-                <p class="job-description">Fintech company focused on payments through facial recognition. Migrated monolith services to microservices, implemented new features, optimized development processes, and created internal tools.</p>
-                <div class="technologies">
-                    <span class="tech-tag">NodeJS</span>
-                    <span class="tech-tag">NestJs</span>
-                    <span class="tech-tag">Docker</span>
-                    <span class="tech-tag">Lambda</span>
-                    <span class="tech-tag">ElasticSearch</span>
-                    <span class="tech-tag">Redis</span>
-                </div>
+            <div class="job-entry">
+                <div class="job-title">Payface - Senior Software Engineer</div>
+                <div class="job-date">May 2021 - Apr 2022</div>
+                <p class="job-description">Fintech company focused on facial recognition payments. Migrated monolithic services to microservices, implemented features, and optimized development processes.</p>
+                <div class="tech-list">NodeJS • NestJs • Docker • AWS Lambda • PostgreSQL • Redis • ElasticSearch</div>
             </div>
 
-            <div class="job">
-                <div class="job-title">Senior Software Engineer</div>
-                <div class="company">Freelance - Various Projects</div>
-                <div class="job-date">Jul 2019 - May 2021 (1 year 11 months)</div>
-                <p class="job-description">Led development on multiple projects including Meu Carro Novo, Sampa+Rural, and Sampa+Solidária. Responsibilities included authentication services, ETL applications, API development, and frontend integration.</p>
-                <div class="technologies">
-                    <span class="tech-tag">Ruby on Rails</span>
-                    <span class="tech-tag">NodeJS</span>
-                    <span class="tech-tag">Docker</span>
-                    <span class="tech-tag">Kubernetes</span>
-                    <span class="tech-tag">PostgreSQL</span>
-                    <span class="tech-tag">Angular</span>
-                </div>
+            <div class="job-entry">
+                <div class="job-title">Freelance - Senior Software Engineer</div>
+                <div class="job-date">Jul 2019 - May 2021</div>
+                <p class="job-description">Led development on multiple projects including Meu Carro Novo, Sampa+Rural, and Sampa+Solidária. Built authentication services, ETL applications, and REST APIs.</p>
+                <div class="tech-list">Ruby on Rails • NodeJS • Docker • Kubernetes • Angular • PostgreSQL</div>
             </div>
 
-            <div class="job">
-                <div class="job-title">Software Engineer</div>
-                <div class="company">Jurema</div>
-                <div class="job-date">Jan 2014 - Jul 2019 (5 years 7 months)</div>
-                <p class="job-description">Software boutique with diverse projects and clients. Developed extensible and maintainable code, maintained legacy applications, built projects from scratch, and participated in software architecture processes.</p>
-                <div class="technologies">
-                    <span class="tech-tag">Ruby on Rails</span>
-                    <span class="tech-tag">JavaScript</span>
-                    <span class="tech-tag">Angular</span>
-                    <span class="tech-tag">PostgreSQL</span>
-                    <span class="tech-tag">Docker</span>
-                </div>
+            <div class="job-entry">
+                <div class="job-title">Jurema - Software Engineer</div>
+                <div class="job-date">Jan 2014 - Jul 2019</div>
+                <p class="job-description">Software boutique with diverse projects and clients. Built APIs, websites, mobile apps, and participated in software architecture processes.</p>
+                <div class="tech-list">Ruby on Rails • JavaScript • Angular • PostgreSQL • Docker</div>
             </div>
 
-            <div class="job">
-                <div class="job-title">Software Engineer</div>
-                <div class="company">Various Companies (olook, Bio Ritmo Academia)</div>
-                <div class="job-date">Mar 2012 - Jan 2014</div>
-                <p class="job-description">Early career experience in ecommerce and fitness industry. Implemented features, maintained systems, and contributed to team development.</p>
-                <div class="technologies">
-                    <span class="tech-tag">Ruby on Rails</span>
-                    <span class="tech-tag">MySQL</span>
-                    <span class="tech-tag">Shell Script</span>
-                    <span class="tech-tag">AWS</span>
-                </div>
+            <div class="job-entry">
+                <div class="job-title">Bio Ritmo Academia - Software Engineer</div>
+                <div class="job-date">Sep 2013 - Jan 2014</div>
+                <p class="job-description">One of the biggest gyms in Brazil. Worked on the development team for SmartFit's internal management system, maintaining and developing core features.</p>
+                <div class="tech-list">Ruby on Rails • PostgreSQL • Shell Script • Linux</div>
+            </div>
+
+            <div class="job-entry">
+                <div class="job-title">olook - Software Engineer</div>
+                <div class="job-date">Mar 2012 - Oct 2013</div>
+                <p class="job-description">Ecommerce startup for women's shoes and accessories that rapidly grew in the Brazilian market. Implemented new features, maintained existing systems, fixed bugs, and collaborated with the team.</p>
+                <div class="tech-list">Ruby on Rails • Capistrano • nGinx • Memcached • MySQL • Heroku • AWS</div>
+            </div>
+
+            <div class="job-entry">
+                <div class="job-title">3Bounce - Software Engineer</div>
+                <div class="job-date">Jan 2013 - Jul 2013</div>
+                <p class="job-description">Small software boutique in its early stages. First freelance experience developing a system to manage sales of skin care products.</p>
+                <div class="tech-list">Ruby on Rails • PostgreSQL • Heroku • Linux</div>
             </div>
         </section>
 
         <!-- Skills -->
-        <section class="skills">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
+        <section class="skills-section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-content">
                 <div class="skill-item">Ruby</div>
                 <div class="skill-item">JavaScript</div>
+                <div class="skill-item">TypeScript</div>
                 <div class="skill-item">NodeJS</div>
                 <div class="skill-item">Docker</div>
                 <div class="skill-item">Kubernetes</div>
@@ -500,61 +99,34 @@
                 <div class="skill-item">PostgreSQL</div>
                 <div class="skill-item">MySQL</div>
                 <div class="skill-item">Redis</div>
-                <div class="skill-item">TDD</div>
-                <div class="skill-item">HTML5</div>
-                <div class="skill-item">CSS</div>
-                <div class="skill-item">Angular</div>
-                <div class="skill-item">REST API</div>
                 <div class="skill-item">Microservices</div>
-                <div class="skill-item">Git</div>
+                <div class="skill-item">TDD</div>
+                <div class="skill-item">REST API</div>
             </div>
         </section>
 
         <!-- Education -->
-        <section class="education">
-            <h2>Education</h2>
-            <div class="edu-item">
-                <div class="school">USP - Universidade de São Paulo</div>
-                <div class="degree">Bachelor of Social Sciences</div>
+        <section class="education-section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-entry">
+                <div class="school-name">USP - Universidade de São Paulo</div>
+                <div class="degree-info">Bachelor of Social Sciences</div>
                 <div class="edu-date">Jan 2016 - May 2020</div>
             </div>
         </section>
 
         <!-- Footer -->
         <footer>
-            <p>&copy; 2024 Vinícius Monteiro. All rights reserved.</p>
+            <p class="footer-label">Vinícius Monteiro © <span id="year"></span></p>
+            <div class="footer-links">
+                <a href="mailto:vinicivs.monteiro@gmail.com">Email</a>
+                <a href="https://linkedin.com/in/vinícius-monteiroa4365140" target="_blank">LinkedIn</a>
+                <a href="https://github.com/vinicivs-monteiro" target="_blank">GitHub</a>
+                <a href="https://docs.google.com/document/d/1Fa6MncyM96SWt8lK6FmKglluD5sFObmMo_JPi35Wjtw/edit?tab=t.0" target="_blank">Resume</a>
+            </div>
         </footer>
     </div>
 
-    <script>
-        // Generate random stars
-        function generateStars() {
-            const starsContainer = document.getElementById('stars');
-            const starCount = 150;
-
-            for (let i = 0; i < starCount; i++) {
-                const star = document.createElement('div');
-                star.className = 'star';
-                star.style.left = Math.random() * 100 + '%';
-                star.style.top = Math.random() * 100 + '%';
-                star.style.animationDelay = Math.random() * 3 + 's';
-                star.style.opacity = Math.random() * 0.7 + 0.3;
-                starsContainer.appendChild(star);
-            }
-        }
-
-        generateStars();
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

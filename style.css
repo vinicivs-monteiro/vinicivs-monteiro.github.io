@@ -1,0 +1,304 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Fira Sans', sans-serif;
+    color: #888888;
+    background: radial-gradient(ellipse at 50% 50%, rgba(15, 10, 25, 1) 0%, rgba(5, 5, 15, 1) 50%, rgba(0, 0, 5, 1) 100%);
+    line-height: 1.6;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(75, 40, 120, 0.08) 0%, transparent 25%),
+        radial-gradient(circle at 80% 70%, rgba(40, 20, 80, 0.08) 0%, transparent 25%),
+        radial-gradient(circle at 50% 50%, rgba(20, 80, 140, 0.05) 0%, transparent 40%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Stars background */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+@keyframes drift {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    25% {
+        transform: translateX(100px) translateY(-50px);
+    }
+    50% {
+        transform: translateX(50px) translateY(-100px);
+    }
+    75% {
+        transform: translateX(-50px) translateY(-50px);
+    }
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+/* Main container */
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header */
+header {
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(200, 150, 255, 0.2);
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+    letter-spacing: -0.5px;
+    color: #aaaaaa;
+}
+
+.tagline {
+    font-size: 1rem;
+    color: #777777;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.contact-links {
+    display: flex;
+    gap: 25px;
+    font-size: 0.9rem;
+}
+
+.contact-links a {
+    color: #888888;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-links a:hover {
+    color: #aaaaaa;
+}
+
+/* Summary section */
+.summary-section {
+    margin-bottom: 50px;
+    padding: 25px 0;
+    border-bottom: 1px solid rgba(100, 100, 120, 0.2);
+}
+
+.summary-section p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #888888;
+}
+
+/* Experience section */
+.experience-section {
+    margin-bottom: 50px;
+}
+
+.section-title {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 30px;
+    color: #999999;
+}
+
+.job-entry {
+    margin-bottom: 35px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(100, 100, 120, 0.2);
+}
+
+.job-entry:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.job-title {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #aaaaaa;
+    margin-bottom: 3px;
+}
+
+.job-company {
+    font-size: 0.95rem;
+    color: #777777;
+    margin-bottom: 3px;
+}
+
+.job-date {
+    font-size: 0.85rem;
+    color: #666666;
+    margin-bottom: 10px;
+}
+
+.job-description {
+    font-size: 0.9rem;
+    color: #888888;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.tech-list {
+    font-size: 0.8rem;
+    color: #777777;
+    font-weight: 400;
+}
+
+/* Skills section */
+.skills-section {
+    margin-bottom: 50px;
+}
+
+.skills-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    font-size: 0.9rem;
+    color: #888888;
+}
+
+.skill-item {
+    padding: 12px;
+    border: 1px solid rgba(100, 100, 120, 0.25);
+    border-radius: 4px;
+    text-align: center;
+    transition: all 0.3s ease;
+    background: rgba(100, 100, 120, 0.08);
+}
+
+.skill-item:hover {
+    border-color: rgba(150, 150, 170, 0.4);
+    background: rgba(100, 100, 120, 0.15);
+    color: #aaaaaa;
+}
+
+/* Education section */
+.education-section {
+    margin-bottom: 50px;
+}
+
+.education-entry {
+    margin-bottom: 25px;
+}
+
+.school-name {
+    font-weight: 500;
+    color: #aaaaaa;
+    margin-bottom: 3px;
+}
+
+.degree-info {
+    font-size: 0.9rem;
+    color: #777777;
+    margin-bottom: 3px;
+}
+
+.edu-date {
+    font-size: 0.85rem;
+    color: #666666;
+}
+
+/* Footer */
+footer {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(100, 100, 120, 0.2);
+    text-align: center;
+    color: #666666;
+    font-size: 0.85rem;
+}
+
+.footer-label {
+    margin-bottom: 15px;
+    color: #777777;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 0.9rem;
+}
+
+.footer-links a {
+    color: #888888;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #aaaaaa;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container {
+        padding: 40px 25px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .skills-content {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 12px;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+}

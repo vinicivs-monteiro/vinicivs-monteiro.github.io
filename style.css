@@ -124,7 +124,6 @@ h1 {
 
 /* Summary section */
 .summary-section {
-    margin-bottom: 50px;
     padding: 25px 0;
     border-bottom: 1px solid rgba(100, 100, 120, 0.2);
 }
@@ -247,7 +246,6 @@ h1 {
 
 /* Footer */
 footer {
-    margin-top: 60px;
     padding-top: 40px;
     border-top: 1px solid rgba(100, 100, 120, 0.2);
     text-align: center;
